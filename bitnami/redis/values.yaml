@@ -956,6 +956,15 @@ sentinel:
     ##   - 10.10.10.0/24
     ##
     loadBalancerSourceRanges: []
+    ## @param sentinel.service.loadBalancerIPMappings Redis&trade; Sentinel service Load Balancer IP mappings
+    ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
+    ## e.g.
+    ## loadBalancerIPMappings:
+    ##   - 10.10.10.1
+    ##   - 10.10.10.2
+    ##   - 10.10.10.3
+    ##
+    loadBalancerIPMappings: []
     ## @param sentinel.service.annotations Additional custom annotations for Redis&trade; Sentinel service
     ##
     annotations: {}

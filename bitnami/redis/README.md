@@ -329,6 +329,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `sentinel.service.clusterIP`                  | Redis&trade; Sentinel service Cluster IP                                                                                                    | `""`                     |
 | `sentinel.service.loadBalancerIP`             | Redis&trade; Sentinel service Load Balancer IP                                                                                              | `""`                     |
 | `sentinel.service.loadBalancerSourceRanges`   | Redis&trade; Sentinel service Load Balancer sources                                                                                         | `[]`                     |
+| `sentinel.service.loadBalancerIPMappings`     | Redis&trade; Sentinel service Load Balancer IP mappings                                                                                     | `[]`                     |
 | `sentinel.service.annotations`                | Additional custom annotations for Redis&trade; Sentinel service                                                                             | `{}`                     |
 | `sentinel.terminationGracePeriodSeconds`      | Integer setting the termination grace period for the redis-node pods                                                                        | `30`                     |
 
