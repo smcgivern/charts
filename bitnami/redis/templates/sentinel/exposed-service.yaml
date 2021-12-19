@@ -28,6 +28,10 @@ metadata:
   {{- end }}
 spec:
   type: {{ $.Values.sentinel.service.type }}
+  {{- if $IPMapping }}
+  externalIPs:
+    - {{ $IPMapping }}
+  {{- end }}
   {{- if eq $.Values.sentinel.service.type "LoadBalancer" }}
   externalTrafficPolicy: {{ $.Values.sentinel.service.externalTrafficPolicy }}
   {{- end }}
