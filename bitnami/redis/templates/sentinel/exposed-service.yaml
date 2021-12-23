@@ -19,11 +19,11 @@ metadata:
     {{- end }}
   {{- if or $.Values.sentinel.service.annotations $.Values.commonAnnotations }}
   annotations:
-    {{- if .Values.sentinel.service.annotations }}
+    {{- if $.Values.sentinel.service.annotations }}
     {{- include "common.tplvalues.render" ( dict "value" $.Values.sentinel.service.annotations "context" $ ) | nindent 4 }}
     {{- end }}
-    {{- if .Values.commonAnnotations }}
-    {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
+    {{- if $.Values.commonAnnotations }}
+    {{- include "common.tplvalues.render" ( dict "value" $.Values.commonAnnotations "context" $ ) | nindent 4 }}
     {{- end }}
   {{- end }}
 spec:
@@ -36,13 +36,13 @@ spec:
   externalTrafficPolicy: {{ $.Values.sentinel.service.externalTrafficPolicy }}
   {{- end }}
   {{- if and (eq $.Values.sentinel.service.type "LoadBalancer") $.Values.sentinel.service.loadBalancerIP }}
-  loadBalancerIP: {{ .Values.sentinel.service.loadBalancerIP }}
+  loadBalancerIP: {{ $.Values.sentinel.service.loadBalancerIP }}
   {{- end }}
   {{- if and (eq $.Values.sentinel.service.type "LoadBalancer") $.Values.sentinel.service.loadBalancerSourceRanges }}
-  loadBalancerSourceRanges: {{- toYaml .Values.sentinel.service.loadBalancerSourceRanges | nindent 4 }}
+  loadBalancerSourceRanges: {{- toYaml $.Values.sentinel.service.loadBalancerSourceRanges | nindent 4 }}
   {{- end }}
   {{- if and (eq $.Values.sentinel.service.type "ClusterIP") $.Values.sentinel.service.clusterIP }}
-  clusterIP: {{ .Values.sentinel.service.clusterIP }}
+  clusterIP: {{ $.Values.sentinel.service.clusterIP }}
   {{- end }}
   ports:
     - name: tcp-redis
